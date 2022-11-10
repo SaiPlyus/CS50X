@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: sort1's random.txt times are the slowest, and bubble sort is slow with randomized arrays
+
+sort2 uses: Merge Sort
+
+How do you know?: sort2's time has the fastest overall average of all .txt files
+
+sort3 uses: Selection Sort
+
+How do you know?: sort3's random.txt times are faster then sort1's random.txt times but slower then sort2's
