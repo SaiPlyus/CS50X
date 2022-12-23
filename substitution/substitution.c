@@ -1,7 +1,7 @@
 #include <cs50.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include  <string.h>
+#include <string.h>
 #include <stdio.h>
 
 // Calls function below main to the top of the script

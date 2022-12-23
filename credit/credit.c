@@ -1,22 +1,23 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 
 // Calls all function to top of the script
-long get_numbers(void);
-long get_length(long numbers);
-long validator(long numbers);
-string americanexpress(long numbers);
-string mastercard(long numbers);
-string visa(long numbers);
+uint64_t get_numbers(void);
+uint64_t get_length(uint64_t numbers);
+uint64_t validator(uint64_t numbers);
+string americanexpress(uint64_t numbers);
+string mastercard(uint64_t numbers);
+string visa(uint64_t numbers);
 
 // Main function to generate other functions
-int main(void)
+uint64_t main(void)
 {
     //
-    long numbers = get_numbers();
-    int length = get_length(numbers);
-    long valid  = validator(numbers);
+    uint64_t numbers = get_numbers();
+    uint64_t length = get_length(numbers);
+    uint64_t valid  = validator(numbers);
     string ami = americanexpress(numbers);
     string mas = mastercard(numbers);
     string vis = visa(numbers);
@@ -46,16 +47,16 @@ int main(void)
 }
 
 // Prompts user for card number
-long get_numbers(void)
+uint64_t get_numbers(void)
 {
-    long numbers = get_long("Number: ");
+    uint64_t numbers = get_long("Number: ");
     return numbers;
 }
 
 // Gets the length of the card number
-long get_length(long numbers)
+uint64_t get_length(uint64_t numbers)
 {
-    int length = 0;
+    uint64_t length = 0;
     while (numbers != 0)
     {
         numbers = numbers / 10;
@@ -65,13 +66,13 @@ long get_length(long numbers)
 }
 
 // Card number validation generator
-long validator(long numbers)
+uint64_t validator(uint64_t numbers)
 {
     // Variables for first set of digits
-    long first = numbers;
+    uint64_t first = numbers;
     first = first / 10;
-    int first_num = 0;
-    int first_sum = 0;
+    uint64_t first_num = 0;
+    uint64_t first_sum = 0;
 
     // Iterates over first set of digits
     while (first)
@@ -86,9 +87,9 @@ long validator(long numbers)
     }
 
     // Variables for second set of digits
-    long second = numbers;
-    int second_num = 0;
-    int second_sum = 0;
+    uint64_t second = numbers;
+    uint64_t second_num = 0;
+    uint64_t second_sum = 0;
 
     // Iterates over second set of digits
     while (second)
@@ -99,7 +100,7 @@ long validator(long numbers)
     }
 
     // Adds both sums of digits together
-    int sum = first_sum + second_sum;
+    uint64_t sum = first_sum + second_sum;
 
     // Final check if card is valid , returns card numbers if valid and EOF if invalid
     if (sum % 10)
@@ -110,11 +111,11 @@ long validator(long numbers)
 }
 
 // Checks if card is a mastercard
-string mastercard(long numbers)
+string mastercard(uint64_t numbers)
 {
     // Card must have 16 digits and the correct starting numbers
     string card = "";
-    int digits = numbers / 100000000000000;
+    uint64_t digits = numbers / 100000000000000;
     if (digits < 56 && digits >= 51)
     {
         card = "MASTERCARD";
@@ -123,11 +124,11 @@ string mastercard(long numbers)
 }
 
 // Checks if card is an amex
-string americanexpress(long numbers)
+string americanexpress(uint64_t numbers)
 {
     // Card must have 15 digits and the correct starting numbers
     string card = "";
-    int digits = numbers / 10000000000000;
+    uint64_t digits = numbers / 10000000000000;
     if (digits < 35 && digits >= 34)
     {
         card = "AMEX";
@@ -140,12 +141,12 @@ string americanexpress(long numbers)
 }
 
 // Checks if card is a visa
-string visa(long numbers)
+string visa(uint64_t numbers)
 {
     // Card must have 13 or 16 digits and the correct starting numbers
     string card = "";
-    int pri_digits = numbers / 1000000000000;
-    int sec_digits = numbers / 1000000000000000;
+    uint64_t pri_digits = numbers / 1000000000000;
+    uint64_t sec_digits = numbers / 1000000000000000;
     if (pri_digits == 4)
     {
         card = "VISA";
