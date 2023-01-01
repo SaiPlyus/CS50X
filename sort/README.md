@@ -1,4 +1,5 @@
 # Sort
 
-* Sorting algorithmns used in the cs50 course are not included.
-* Bubble Sort, Selection Sort, Merge Sort algorithmns will be included at a later to be determined date.
+* Sort needs to be correctly compiled.
+* Sort will be correctly compiled at a to-be-determined date.
+* Bubble Sort is sort1, Merge Sort is sort2, Selection Sort is sort3.

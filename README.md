@@ -1,5 +1,8 @@
 # /CS50x
 
+* Each Lab and Problem Set have been confirmed to work in **CS50x's 2022 course**.
+* Some files only will work inside of CS50x's codespace.
+* File that do not work will be updated at a to-be-determined data.
 * Each individual directory of every .exe file and .c file includes a cs50.c file and a cs50.h library.
 * Move cs50.c and cs50.h form the CS50x directory to the current directory path being used for the include library of stdio.h.
 * The CS50x directory includes the mm_malloc.h library in case it is not located inside the the directory path of the stdio.h library .
